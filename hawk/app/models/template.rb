@@ -399,6 +399,10 @@ class Template < Resource
     end
   end
 
+  def agent_name
+    [clazz, provider, type].reject(&:blank?).join(":")
+  end
+
   protected
 
   def update
@@ -426,11 +430,7 @@ class Template < Resource
       # TODO(must): Ensure clazz, provider and type are sanitized
       cmd.push "rsc_template #{id}"
 
-      cmd.push [
-        clazz,
-        provider,
-        type
-      ].reject(&:nil?).reject(&:empty?).join(":")
+      cmd.push agent_name
 
       unless params.empty?
         params.each do |key, value|
