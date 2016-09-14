@@ -82,7 +82,7 @@
       @include gradient-vertical(#f4f4f4, #e7e7e7);
 
       h2 {
-        font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: $headings-font-family;
         color: rgb(58, 62, 64);
         -webkit-font-smoothing: antialiased;
         font-size: 14px;
